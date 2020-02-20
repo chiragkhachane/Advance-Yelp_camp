@@ -1,0 +1,48 @@
+<% include ../partials/header %>
+
+<html>
+    <head>
+        <title>YelpCamp</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/new.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    </head>
+    <body>
+
+<!-- <div class="container"> -->
+	<!-- <div class="row">
+		<div class="col-md-12">
+			<h1 style="text-align: center;">Create a New Campground</h1>
+		</div>
+	 -->
+		<!-- <div style="width: 30%; margin: 25px auto;">	 -->
+			<form action="/index" method="POST" class="new-form">
+				
+				<h1 style="text-align: center;">Create New Campground !</h1>
+				<div class="txtb">
+					<input class="form-control" type="text" name="name" placeholder="Name">
+				</div>
+				
+				<div class="txtb">
+					<input class="form-control" type="number" name="price" placeholder="Price" min="0.01" step="0.01">
+				</div>
+				
+				<div class="txtb">
+					<!-- <label for="image">Image</label> -->
+					<input id="image" type="text" name="image" placeholder="Image URL" required>
+				</div>
+
+				<div class="txtb">
+					<input class="form-control" type="text" name="info" placeholder="Description">
+				</div>
+				<div class="txtb">
+					<button class="logbtn">Submit!</button>
+				</div>
+				<a href="/index">Go back</a>
+			</form>
+			
+		<!-- </div> -->
+		
+	<!-- </div> -->
+<!-- </div>	 -->
+<% include ../partials/footer %>

@@ -1,0 +1,15 @@
+<% include ../partials/header %> 
+
+<h1><span class="badge badge-dark">Notifications :</span></h1>
+
+	<ul>
+		<% allNotifications.forEach(function(notification) { %>
+		<li>
+			<a href="/index/<%= notification.campgroundId %>">
+				<%= notification.username %> created a new campground %>
+			</a>
+		</li>
+		<% }); %>
+	</ul>
+
+<% include ../partials/footer %> 

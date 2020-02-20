@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Make site responsive on mobile/tablet -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Yelp Camp</title>
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	
+	<script src="https://kit.fontawesome.com/3c2bac0d1b.js" crossorigin="anonymous"></script>
+	
+	<link rel="stylesheet" href="/stylesheets/main.css">
+	<style> 
+        /* Modify the background color */ 
+          
+        .navbar-custom { 
+            background-color: ; 
+        } 
+        /* Modify brand and text color */ 
+        .navbar-custom .navbar-brand, 
+        .navbar-custom .navbar-text .nav-link{ 
+            color: white; 
+        }   
+        
+    </style> 
+</head>
+<body>
+
+	<!-- New Nav Bar	 -->
+<nav class="navbar navbar-expand-md navbar-dark bg-secondary mb-4">
+	<!-- <nav class="navbar navbar-custom mb-4"> -->
+  <a class="navbar-brand" href="/"><i class="fas fa-campground"></i>YelpCamp</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+
+	
+	<ul class="navbar-nav navbar-custom mr-auto">
+        <li class="nav-item <%= typeof page !== 'undefined' && page === 'index' ? 'active' : '' %>">
+			<a href="/index" class="nav-link">Campgrounds</a>
+		</li>
+	</ul>
+
+	  <ul class="navbar-nav navbar-right">
+		  <% if(!currentUser){ %>
+			<li><a href="/login" class="nav-link active"><span class="loginbtn">Login</span></a></li>
+        	<li><a href="/register" class="nav-link active"><span class="logbtn">Sign Up</span></a></li>
+		  <% } else { %>
+		  
+		  <li><a class="nav-link active" href="/notifications">Notifications <span class="badge badge-secondary"><%= notifications.length %></span></a></li>
+			  <!-- <li class="nav-item dropdown">  
+			  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/notifications" role="button" aria-haspopup="true" aria-expanded="false">Notifications <span class="badge badge-secondary"><%= notifications.length %></span></a>  
+				<div>  
+					<ul class="dropdown-menu">
+						<li>
+							<a class="dropdown-item" href="/notifications">View past notifications</a>
+						</li>
+						<% notifications.forEach(function(notification) { %>                          
+							<li>
+								<a class="dropdown-item" href="/notifications/<%= notification.id %>">
+									<%= notification.username %> created a new campground
+								</a>
+							</li>
+						<% }); %>
+					 </ul>
+				 </div>	
+              </li>	 -->
+		  
+				
+		  
+			  <li><a href="/users/<%= currentUser.id%>"  class="nav-link"><img src="<%= currentUser.avatar %>" width="30" height="30"></a> </li>
+		  	  <li class="nav-link active">Signed in as <%= currentUser.username %></li>
+			  <li><a href="/logout" class="nav-link">Logout</a></li>
+		  <% } %>
+	  </ul>
+	  
+  </div>
+</nav>
+
+	
+	<div class="container">
+		<% if(error && error.length>0) { %>	
+			<div class="alert alert-danger" role="alert">
+				<%= error %>
+			</div>
+		<% } %>
+		<% if(success && success.length>0) { %>	
+			<div class="alert alert-success" role="alert">
+				<%= success %>
+			</div>
+		<% } %>
+	</div>

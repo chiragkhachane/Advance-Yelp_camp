@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+
+<div class="row">
+	<div class="col-md-4">
+		<h1>Your Profile </h1>
+		<h3>First name: <%= user.firstname%></h3>
+		<h3>Last name: <%= user.lastname%></h3>
+		<div class="card" style=".card img { width: 100%; }">
+			<img src="<%= user.avatar %>" alt="user profile image">
+			<div class="mx-auto" >
+				<a href="/follow/<%= user.id %>"><button class="btn btn-primary">Follow <%= user.username %></button></a>
+			</div>
+			<hr>
+			<p>
+				Email: <a href="mailto:<%= user.email %>"><%= user.email %></a>
+			</p>
+			<p>
+				About: <%= user.info %>
+			</p>
+		</div>
+
+		
+	</div>
+	<div class="col-md-8" style="width: 30%; margin: 25px auto;">
+		<h3><%= user.username %>'s campgrounds:</h3>
+		<ul>
+		<% campgrounds.forEach(function(campground) { %>
+			<li><a href="/index/<%= campground.id %>"><%= campground.name %></a> <img src="<%= campground.image %>" width="20" height="20"></li>
+			
+		<% }); %>
+		</ul>
+	</div>
+</div>
+
+<% include ../partials/footer %>

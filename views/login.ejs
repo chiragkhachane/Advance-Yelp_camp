@@ -1,0 +1,50 @@
+<% include ./partials/header %>
+
+<html>
+    <head>
+        <title>YelpCamp</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/login.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    </head>
+    <body>
+
+	
+
+	
+
+        <form action="/login" method="post" class="login-form">
+			<h1>Login into  Yelp Camp</h1>
+			
+            <div class="txtb">
+                <input class="form-control" type="text" name="username" placeholder="Username">
+            </div>
+            <div class="txtb">
+                <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="txtb">
+                <button class="logbtn">Login</button>
+            </div>
+			
+			<a href="/index" class="bottom-text">Go Back</a>
+		<span class="float-right"><a href="/forgot">Forgot password?</a></span>
+        </form>
+        
+    <!-- </div> -->
+	
+
+	<script type="text/javascript">
+	  $(".txtb input").on("focus",function(){
+		$(this).addClass("focus");
+	  });
+
+	  $(".txtb input").on("blur",function(){
+		if($(this).val() == "")
+		$(this).removeClass("focus");
+	  });
+
+    </script>
+
+
+
+<% include ./partials/footer %>
